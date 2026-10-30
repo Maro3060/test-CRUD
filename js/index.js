@@ -69,6 +69,6 @@ function displayProducts(list) {
 
 function removeProduct(idx) {
   productList.splice(idx, 1);
-  localStorage.setItem('productList', productList);
+  localStorage.setItem('productList', JSON.stringify(productList));
   displayProducts(productList);
 }
