@@ -56,7 +56,7 @@ function displayProducts(list) {
                 <p>${list[i].discription}</p>
                 <div class="actions d-flex justify-content-between">
                   <button class="btn btn-warning"><i class="fa-solid fa-pen"></i></button>
-                  <button class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
+                  <button class="btn btn-danger" onclick="removeProduct(${i})"><i class="fa-solid fa-trash-can"></i></button>
                 </div>
               </div>
             </div>
@@ -65,4 +65,10 @@ function displayProducts(list) {
     }
     
     document.getElementById('products-area').innerHTML = blackBox;
+}
+
+function removeProduct(idx) {
+  productList.splice(idx, 1);
+  localStorage.setItem('productList', productList);
+  displayProducts(productList);
 }
