@@ -5,6 +5,11 @@ var productImageInput = document.getElementById("product-image");
 var productDiscriptionInput = document.getElementById("product-discription");
 var productList = [];
 
+if(localStorage.getItem("productList")) {
+  productList = JSON.parse(localStorage.getItem("productList"));
+  displayProducts(productList);
+}
+
 function addProduct() {
     var product = {
         name: productNameInput.value,
@@ -13,8 +18,12 @@ function addProduct() {
         Image: '../images/img.jpg',
         discription: productDiscriptionInput.value
     };
+    
     productList.push(product);
+    localStorage.setItem('productList', JSON.stringify(productList));
+    
     displayProducts(productList);
+    
     clearProductInput();
 }
 
@@ -28,6 +37,7 @@ function clearProductInput() {
 
 function displayProducts(list) {
     var blackBox = '';
+    
     for(var i = 0; i < list.length; i++) {
         blackBox += `
         <div class="col-lg-3 col-md-6">
@@ -53,5 +63,6 @@ function displayProducts(list) {
           </div>
         `;
     }
+    
     document.getElementById('products-area').innerHTML = blackBox;
 }
