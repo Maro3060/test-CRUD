@@ -12,7 +12,16 @@ function addProduct() {
         category: productCategoryInput.value,
         Image: '../images/img.jpg',
         discription: productDiscriptionInput.value
-    }
-    
+    };
     productList.push(product);
+    clearProductInput();
+    console.log(productList)
+}
+
+function clearProductInput() {
+    productNameInput.value = "";
+    productPriceInput.value = "";
+    productCategoryInput.value = "";
+    productImageInput.value = "";
+    productDiscriptionInput.value = "";
 }

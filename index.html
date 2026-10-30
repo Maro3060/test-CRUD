@@ -11,64 +11,91 @@
   <body>
     <main class="w-50 mx-auto p-5">
       <h1 class="text-center mb-4">Product Management</h1>
-      <form>
-        <div class="form-floating mb-3">
-          <input
-            type="text"
-            class="form-control"
-            id="product-name"
-            placeholder="Enter your product name"
-          />
-          <label for="product-name">Product Name</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input
-            type="text"
-            class="form-control"
-            id="product-price"
-            placeholder="Enter your product Price"
-          />
-          <label for="product-price">Product Price</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input
-            type="search"
-            class="form-control"
-            id="product-category"
-            placeholder="Enter your product Price"
-            list="category"
-          />
-          <label for="product-category">Product Category</label>
-          <datalist id="category">
-            <option value="TV"></option>
-            <option value="Mobile"></option>
-            <option value="Iphone"></option>
-            <option value="Smart Wtch"></option>
-            <option value="Play station"></option>
-            <option value="Lab top"></option>
-          </datalist>
-        </div>
-        <div class="form-floating mb-3">
-          <input
-            type="file"
-            class="form-control"
-            id="product-image"
-            placeholder="Enter your product image"
-          />
-          <label for="product-price">Product Image</label>
-        </div>
-        <div class="form-floating mb-3">
-          <textarea
-            class="form-control"
-            name=""
-            id="product-discription"
-            style="resize: none;"
-          ></textarea>
-          <label for="product-discription">Discription</label>
-        </div>
-        <button class="btn btn-primary w-100 py-3" onclick="addProduct()">Add Product</button>
-      </form>
+      <div class="form-floating mb-3">
+        <input
+          type="text"
+          class="form-control"
+          id="product-name"
+          placeholder="Enter your product name"
+        />
+        <label for="product-name">Product Name</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input
+          type="text"
+          class="form-control"
+          id="product-price"
+          placeholder="Enter your product Price"
+        />
+        <label for="product-price">Product Price</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input
+          type="search"
+          class="form-control"
+          id="product-category"
+          placeholder="Enter your product Price"
+          list="category"
+        />
+        <label for="product-category">Product Category</label>
+        <datalist id="category">
+          <option value="TV"></option>
+          <option value="Mobile"></option>
+          <option value="Iphone"></option>
+          <option value="Smart Wtch"></option>
+          <option value="Play station"></option>
+          <option value="Lab top"></option>
+        </datalist>
+      </div>
+      <div class="form-floating mb-3">
+        <input
+          type="file"
+          class="form-control"
+          id="product-image"
+          placeholder="Enter your product image"
+        />
+        <label for="product-price">Product Image</label>
+      </div>
+      <div class="form-floating mb-3">
+        <textarea
+          class="form-control"
+          name=""
+          id="product-discription"
+          style="resize: none"
+        ></textarea>
+        <label for="product-discription">Discription</label>
+      </div>
+      <button class="btn btn-primary w-100 py-3" onclick="addProduct()">
+        Add Product
+      </button>
     </main>
+    <section class="my-3">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-3 col-md-6">
+            <div class="card product">
+              <img src="images/img.jpg" alt="fuck" class="card-img-top" />
+              <div class="card-body">
+                <div class="d-flex justify-content-between">
+                  <div class="category badge text-bg-primary w-auto">
+                    <span>category</span>
+                  </div>
+                  <div class="price text-danger">
+                    <span>Price$</span>
+                  </div>
+                </div>
+                <h2>Product Name</h2>
+                <p>discription</p>
+                <div class="actions d-flex justify-content-between">
+                  <button class="btn btn-warning"><i class="fa-solid fa-pen"></i></button>
+                  <button class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/index.js"></script>
   </body>
