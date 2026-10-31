@@ -17,7 +17,7 @@ function addProduct() {
         name: productNameInput.value,
         price: productPriceInput.value,
         category: productCategoryInput.value,
-        Image: '../images/img.jpg',
+        Image: `../images/${productImageInput.files[0].name}`,
         discription: productDiscriptionInput.value
     };
     
@@ -45,7 +45,7 @@ function editProduct(idx) {
   productNameInput.value = productList[idx].name;
   productPriceInput.value = productList[idx].price;
   productCategoryInput.value = productList[idx].category;
-  // productImageInput.value = productList[idx].Image;
+  productImageInput.value = `../images/${productImageInput.files[0].name}`;
   productDiscriptionInput.value = productList[idx].discription;
 
   addBtn.classList.add("d-none")
@@ -56,7 +56,7 @@ function updateProduct() {
   productList[updatedIdx].name = productNameInput.value;
   productList[updatedIdx].price = productPriceInput.value;
   productList[updatedIdx].category = productCategoryInput.value;
-  productList[updatedIdx].Image = '../images/img.jpg';
+  productList[updatedIdx].Image = `../images/${productImageInput.files[0].name}`;
   productList[updatedIdx].discription = productDiscriptionInput.value;
 
   displayProducts(productList);
@@ -75,7 +75,7 @@ function displayProducts(list) {
         blackBox += `
         <div class="col-lg-3 col-md-6">
             <div class="card product">
-              <img src="images/img.jpg" alt="fuck" class="card-img-top" />
+              <img src="${list[i].Image}" alt="fuck" class="card-img-top" />
               <div class="card-body">
                 <div class="d-flex justify-content-between">
                   <div class="category badge text-bg-primary w-auto">
