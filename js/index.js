@@ -75,7 +75,7 @@ function displayProducts(list) {
         blackBox += `
         <div class="col-lg-3 col-md-6">
             <div class="card product">
-              <img src="${list[i].Image}" alt="fuck" class="card-img-top" />
+              <img src="${list[i].Image}" alt="fuck" class="card-img-top object-fit-contain" />
               <div class="card-body">
                 <div class="d-flex justify-content-between">
                   <div class="category badge text-bg-primary w-auto">
