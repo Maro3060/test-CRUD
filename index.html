@@ -65,11 +65,14 @@
         ></textarea>
         <label for="product-discription">Discription</label>
       </div>
-      <button class="btn btn-primary w-100 py-3" onclick="addProduct()">
+      <button class="btn btn-primary w-100 py-3" onclick="addProduct()" id="addBtn">
         Add Product
       </button>
+      <button class="btn btn-info w-100 py-3 d-none" id="updateBtn" onclick="updateProduct()">
+        update Product
+      </button>
     </main>
-    <section class="my-3">
+    <section class="my-5">
       <div class="container">
         <div class="row gy-4" id="products-area">
           
