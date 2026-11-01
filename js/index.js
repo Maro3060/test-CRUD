@@ -86,7 +86,7 @@ function displayProducts(list) {
                     <span>${list[i].price}</span>
                   </div>
                 </div>
-                <h2>${list[i].name}</h2>
+                <h2>${list[i].hightlighted ? list[i].hightlighted : list[i].name}</h2>
                 <p>${list[i].discription}</p>
                 <div class="actions d-flex justify-content-between">
                   <button class="btn btn-warning" onclick="editProduct(${i})"><i class="fa-solid fa-pen"></i></button>
@@ -108,11 +108,13 @@ function removeProduct(idx) {
 }
 
 function searchProduct() {
+  var keyword = searchProductInput.value.toLowerCase().trim();
   var matched = [];
 
   for(var i = 0; i < productList.length; i++) {
-    if(productList[i].name.toLowerCase().includes(searchProductInput.value.toLowerCase())) {
+    if(productList[i].name.toLowerCase().includes(keyword)) {
       matched.push(productList[i]);
+      productList[i].hightlighted = productList[i].name.toLowerCase().replaceAll(keyword, `<span class="text-danger">${keyword}</span>`)
     }
 
     if(matched.length > 0) {
