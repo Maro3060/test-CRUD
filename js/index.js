@@ -3,6 +3,7 @@ var productPriceInput = document.getElementById("product-price");
 var productCategoryInput = document.getElementById("product-category");
 var productImageInput = document.getElementById("product-image");
 var productDiscriptionInput = document.getElementById("product-discription");
+var searchProductInput = document.getElementById("search-product");
 var addBtn = document.getElementById("addBtn");
 var updateBtn = document.getElementById("updateBtn");
 var productList = [];
@@ -104,4 +105,20 @@ function removeProduct(idx) {
   productList.splice(idx, 1);
   localStorage.setItem('productList', JSON.stringify(productList));
   displayProducts(productList);
+}
+
+function searchProduct() {
+  var matched = [];
+
+  for(var i = 0; i < productList.length; i++) {
+    if(productList[i].name.toLowerCase().includes(searchProductInput.value.toLowerCase())) {
+      matched.push(productList[i]);
+    }
+
+    if(matched.length > 0) {
+      displayProducts(matched)
+    } else {
+      document.getElementById("products-area").innerHTML = `<div class="alert alert-warning" role="alert">Not found</div>`;
+    }
+  }
 }
