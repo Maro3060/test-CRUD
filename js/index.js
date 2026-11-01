@@ -118,7 +118,7 @@ function searchProduct() {
     if(matched.length > 0) {
       displayProducts(matched)
     } else {
-      document.getElementById("products-area").innerHTML = `<div class="alert alert-warning" role="alert">Not found</div>`;
+      document.getElementById("products-area").innerHTML = `<div class="alert alert-warning text-center" role="alert">Not found</div>`;
     }
   }
 }
