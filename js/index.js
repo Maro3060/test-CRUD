@@ -1,6 +1,6 @@
-var productNameInput = document.getElementById("product-name");
-var productPriceInput = document.getElementById("product-price");
-var productCategoryInput = document.getElementById("product-category");
+var productNameInput = document.getElementById("productName");
+var productPriceInput = document.getElementById("productPrice");
+var productCategoryInput = document.getElementById("productCategory");
 var productImageInput = document.getElementById("product-image");
 var productDiscriptionInput = document.getElementById("product-discription");
 var searchProductInput = document.getElementById("search-product");
@@ -114,7 +114,7 @@ function searchProduct() {
   for(var i = 0; i < productList.length; i++) {
     if(productList[i].name.toLowerCase().includes(keyword)) {
       matched.push(productList[i]);
-      productList[i].hightlighted = productList[i].name.toLowerCase().replaceAll(keyword, `<span class="text-danger">${keyword}</span>`)
+      productList[i].hightlighted = productList[i].name.toLowerCase().replaceAll(keyword, `<span class="text-danger">${keyword}</span>`);
     }
 
     if(matched.length > 0) {
@@ -123,4 +123,14 @@ function searchProduct() {
       document.getElementById("products-area").innerHTML = `<div class="alert alert-warning text-center" role="alert">Not found</div>`;
     }
   }
+}
+
+function validate(element) {
+  var regex = {
+    productName: /^[a-zA-Z0-9\s\-_&./']+$/,
+    productPrice: /^\$?([5-9]\d{2}|[1-9]\d{3,})$/,
+    productCategory: /^(TV|Mobile|Iphone|Smart Wtch|Play station|Lab top)/
+  }
+
+  isValidte = regex[element.id].test(element.value);
 }

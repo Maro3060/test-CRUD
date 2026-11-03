@@ -15,30 +15,32 @@
         <input
           type="text"
           class="form-control"
-          id="product-name"
+          id="productName"
           placeholder="Enter your product name"
+          oninput="validate(this)"
         />
-        <label for="product-name">Product Name</label>
+        <label for="productName">Product Name</label>
       </div>
       <div class="form-floating mb-3">
         <input
           type="text"
           class="form-control"
-          id="product-price"
+          id="productPrice"
           placeholder="Enter your product Price"
         />
-        <label for="product-price">Product Price</label>
+        <label for="productPrice">Product Price</label>
       </div>
       <div class="form-floating mb-3">
         <input
           type="search"
           class="form-control"
-          id="product-category"
+          id="productCategory"
           placeholder="Enter your product Price"
           list="category"
+          oninput="validate(this)"
         />
-        <label for="product-category">Product Category</label>
-        <datalist id="category">
+        <label for="productCategory">Product Category</label>
+        <datalist id="category" oninput="validate(this)">
           <option value="TV"></option>
           <option value="Mobile"></option>
           <option value="Iphone"></option>
