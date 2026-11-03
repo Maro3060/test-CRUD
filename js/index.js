@@ -132,5 +132,13 @@ function validate(element) {
     productCategory: /^(TV|Mobile|Iphone|Smart Wtch|Play station|Lab top)/
   }
 
-  isValidte = regex[element.id].test(element.value);
+  isValide = regex[element.id].test(element.value);
+
+  if(isValide) {
+    element.classList.add('is-valid');
+    element.classList.remove('is-invalid');
+  } else {
+    element.classList.add('is-invalid');
+    element.classList.remove('is-valid');
+  }
 }
