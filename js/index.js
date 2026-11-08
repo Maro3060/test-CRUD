@@ -143,10 +143,12 @@ function validateInput(inputElement) {
   if(valid) {
     inputElement.classList.add("is-valid");
     inputElement.classList.remove("is-invalid");
+    inputElement.nextElementSibling.classList.replace("d-block","d-none");
   }
   else {
     inputElement.classList.remove("is-valid");
     inputElement.classList.add("is-invalid");
+    inputElement.nextElementSibling.classList.replace("d-none","d-block");
   }
 
   return valid;
