@@ -2,7 +2,7 @@ var productNameInput = document.getElementById("productName");
 var productPriceInput = document.getElementById("productPrice");
 var productCategoryInput = document.getElementById("productCategory");
 var productImageInput = document.getElementById("product-image");
-var productDiscriptionInput = document.getElementById("product-discription");
+var productDiscriptionInput = document.getElementById("productDiscription");
 var searchProductInput = document.getElementById("search-product");
 var addBtn = document.getElementById("addBtn");
 var updateBtn = document.getElementById("updateBtn");
@@ -14,20 +14,25 @@ if(localStorage.getItem("productList")) {
 }
 
 function addProduct() {
-    var product = {
-        name: productNameInput.value,
-        price: productPriceInput.value,
-        category: productCategoryInput.value,
-        Image: `../images/${productImageInput.files[0].name}`,
-        discription: productDiscriptionInput.value
-    };
-    
-    productList.push(product);
-    localStorage.setItem('productList', JSON.stringify(productList));
-    
-    displayProducts(productList);
-    
-    clearProductInput();
+  var valid = validateInput(productNameInput) && validateInput(productCategoryInput) && validateInput(productDiscriptionInput) && validateInput(productPriceInput);
+  
+  console.log(valid);
+  if(valid) {
+      var product = {
+          name: productNameInput.value,
+          price: productPriceInput.value,
+          category: productCategoryInput.value,
+          Image: `../images/${productImageInput.files[0].name}`,
+          discription: productDiscriptionInput.value
+      };
+      
+      productList.push(product);
+      localStorage.setItem('productList', JSON.stringify(productList));
+      
+      displayProducts(productList);
+      
+      clearProductInput();
+    }
 }
 
 function clearProductInput() {
@@ -125,20 +130,24 @@ function searchProduct() {
   }
 }
 
-function validate(element) {
+function validateInput(inputElement) {
   var regex = {
-    productName: /^[a-zA-Z0-9\s\-_&./']+$/,
-    productPrice: /^\$?([5-9]\d{2}|[1-9]\d{3,})$/,
-    productCategory: /^(TV|Mobile|Iphone|Smart Wtch|Play station|Lab top)/
+    productName : /^[A-Z][a-z]{2,19}/,
+    productPrice: /^[1-9][0-9]{2,5}$/,
+    productCategory: /^(TV|Mobile|Iphone|Watches|Playstation|Labtop)$/,
+    productDiscription: /^[A-Za-z0-9\s]{4,250}$/
   }
 
-  isValide = regex[element.id].test(element.value);
+  valid = regex[inputElement.id].test(inputElement.value)
 
-  if(isValide) {
-    element.classList.add('is-valid');
-    element.classList.remove('is-invalid');
-  } else {
-    element.classList.add('is-invalid');
-    element.classList.remove('is-valid');
+  if(valid) {
+    inputElement.classList.add("is-valid");
+    inputElement.classList.remove("is-invalid");
   }
+  else {
+    inputElement.classList.remove("is-valid");
+    inputElement.classList.add("is-invalid");
+  }
+
+  return valid;
 }

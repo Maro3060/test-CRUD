@@ -17,8 +17,9 @@
           class="form-control "
           id="productName"
           placeholder="Enter your product name"
-          oninput="validate(this)"
+          oninput="validateInput(this)"
         />
+        <span class="text-danger d-none">Product names must start with capital letter and only contain letters, numbers, and spaces</span>
         <label for="productName">Product Name</label>
       </div>
       <div class="form-floating mb-3">
@@ -27,8 +28,9 @@
           class="form-control"
           id="productPrice"
           placeholder="Enter your product Price"
-          oninput="validate(this)"
+          oninput="validateInput(this)"
         />
+        <span class="text-danger d-none">The minimum price for this product is $500</span>
         <label for="productPrice">Product Price</label>
       </div>
       <div class="form-floating mb-3">
@@ -37,17 +39,18 @@
           class="form-control"
           id="productCategory"
           placeholder="Enter your product Price"
-          list="category"
-          oninput="validate(this)"
+          list="cate"
+          oninput="validateInput(this)"
         />
+        <span class="text-danger d-none">you must choose from list</span>
         <label for="productCategory">Product Category</label>
-        <datalist id="category" oninput="validate(this)">
+        <datalist id="cate">
           <option value="TV"></option>
           <option value="Mobile"></option>
           <option value="Iphone"></option>
-          <option value="Smart Wtch"></option>
-          <option value="Play station"></option>
-          <option value="Lab top"></option>
+          <option value="Watches"></option>
+          <option value="Playstation"></option>
+          <option value="Labtop"></option>
         </datalist>
       </div>
       <div class="form-floating mb-3">
@@ -63,10 +66,11 @@
         <textarea
           class="form-control"
           name=""
-          id="product-discription"
+          id="productDiscription"
           style="resize: none"
+          oninput="validateInput(this)"
         ></textarea>
-        <label for="product-discription">Discription</label>
+        <label for="productDiscription">Discription</label>
       </div>
       <button
         class="btn btn-primary w-100 py-3"
